@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from './Card.module.css'; 
 
 export default function Card({ element }) {
   const { id, name, image, mediaUrl, summary } = element;
 
   return (
-    <div>
+    <div className={styles.card}>
       <img src={image} alt={name} />
-      <h3>{name}</h3>
+      <h3 className={styles.truncate}>{name}</h3>
     </div>
   );
 }

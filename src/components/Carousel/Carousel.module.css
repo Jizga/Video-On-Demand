@@ -1,0 +1,5 @@
+.carousel {
+  padding: 1rem;
+  display: flex;
+  overflow-x: scroll;
+}

@@ -1,0 +1,10 @@
+.card {
+  margin: 0 0.5rem;
+}
+
+.truncate {
+    width: 210px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

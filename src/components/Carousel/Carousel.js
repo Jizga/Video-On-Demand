@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
+import styles from './Carousel.module.css'; 
+
 
 export default function Carousel() {
   const [data, setData] = useState([]);
@@ -21,7 +23,7 @@ export default function Carousel() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.carousel}>
       {data.length
         ? data.map((dataElement) => (
             <Card id={dataElement.id} element={dataElement} />

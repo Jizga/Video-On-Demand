@@ -1,5 +1,6 @@
 .card {
   margin: 0 0.5rem;
+  position: relative;
 }
 
 .truncate {
@@ -8,3 +9,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+.imageContainer {
+  width: 210px;
+  height: 295px;
+  overflow-y: scroll;
+  background-color: grey;
+  color: white;
+}
+
+.description {
+  padding: .5rem .5rem;
+}

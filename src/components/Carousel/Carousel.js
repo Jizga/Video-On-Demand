@@ -26,7 +26,7 @@ export default function Carousel() {
     <div className={styles.carousel}>
       {data.length
         ? data.map((dataElement) => (
-            <Card id={dataElement.id} element={dataElement} />
+            <Card key={dataElement.id} element={dataElement} />
           ))
         : "Loading..."}
     </div>

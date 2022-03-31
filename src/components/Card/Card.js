@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Card.module.css";
-import Video from "../Video/Video";
+import Video from "../VideoPlayer/VideoPlayer";
 
 export default function Card({ element }) {
-  const { id, name, image, mediaUrl, summary } = element;
+  const { name, image, mediaUrl, summary } = element;
   const [showDescription, setShowDescription] = useState(false);
   const [isPlayed, setisPlayed] = useState(false);
 

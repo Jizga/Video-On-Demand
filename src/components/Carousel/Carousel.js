@@ -14,6 +14,7 @@ export default function Carousel() {
     setCardSelected(card);
   };
 
+
   useEffect(() => {
     const getData = async () => {
       try {

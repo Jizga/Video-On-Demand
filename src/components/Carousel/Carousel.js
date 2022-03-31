@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
-import styles from './Carousel.module.css'; 
-
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
+import styles from "./Carousel.module.css";
 
 export default function Carousel() {
   const [data, setData] = useState([]);
+  const [isVideoPlayed, setIsVideoPlayed] = useState(false);
+  const [cardSelected, setCardSelected] = useState({});
+  const { image, mediaUrl } = cardSelected;
+
+  const playVideo = (card) => {
+    setIsVideoPlayed(true);
+    setCardSelected(card);
+  };
 
   useEffect(() => {
     const getData = async () => {
@@ -23,12 +31,23 @@ export default function Carousel() {
   }, []);
 
   return (
-    <div className={styles.carousel}>
-      {data.length
-        ? data.map((dataElement) => (
-            <Card key={dataElement.id} element={dataElement} />
-          ))
-        : "Loading..."}
-    </div>
+    <>
+      {/* To replace the Carousel by the video player */}
+      {isVideoPlayed ? (
+        <VideoPlayer video={mediaUrl} image={image} />
+      ) : (
+        <div className={styles.carousel}>
+          {data.length
+            ? data.map((dataElement) => (
+                <Card
+                  key={dataElement.id}
+                  element={dataElement}
+                  playVideo={() => playVideo(dataElement)}
+                />
+              ))
+            : "Loading..."}
+        </div>
+      )}
+    </>
   );
 }

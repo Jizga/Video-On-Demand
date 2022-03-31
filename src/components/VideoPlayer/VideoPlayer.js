@@ -8,20 +8,31 @@ export default function VideoPlayer({ video, image }) {
 
   useEffect(() => {
     if (video.endsWith("mp4")) {
+      /* To change the path video to play it in all browsers */
       const formatIndex = video.indexOf("mp4");
       const videoUrlWithoutFormat = video.slice(0, formatIndex);
-      const newVideoUrl = FORMATS_VIDEO.map(
+      const newVideoUrls = FORMATS_VIDEO.map(
         (format) => `${videoUrlWithoutFormat}${format}`
       );
-      setVideUrls(newVideoUrl);
+      setVideUrls(newVideoUrls);
     }
   }, []);
 
   return (
-    <video id='videoPlayer' className={styles.video} autoPlay controls poster={image} loop>
+    <video
+      id="videoPlayer"
+      className={styles.video}
+      autoPlay
+      controls
+      poster={image}
+      loop
+    >
+      {/* To play the video in all browsers */}
       {videoUrls.map((url, indx) => {
         const lastWord = url.split(".").pop();
-        return <source key={indx} src={url} type={`video/${lastWord}`}></source>;
+        return (
+          <source key={indx} src={url} type={`video/${lastWord}`}></source>
+        );
       })}
     </video>
   );
@@ -29,5 +40,5 @@ export default function VideoPlayer({ video, image }) {
 
 VideoPlayer.propTypes = {
   video: PropTypes.string,
-  image: PropTypes.string
+  image: PropTypes.string,
 };

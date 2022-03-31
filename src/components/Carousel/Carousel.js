@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from "../../context/context";
 import Card from "../Card/Card";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import styles from "./Carousel.module.css";
 
 export default function Carousel() {
   const [data, setData] = useState([]);
-  const [isVideoPlayed, setIsVideoPlayed] = useState(false);
+  // To use the context
+  const { isVideoPlayed, setIsVideoPlayed } = useContext(Context);
   const [cardSelected, setCardSelected] = useState({});
   const { image, mediaUrl } = cardSelected;
 
@@ -13,7 +15,6 @@ export default function Carousel() {
     setIsVideoPlayed(true);
     setCardSelected(card);
   };
-
 
   useEffect(() => {
     const getData = async () => {

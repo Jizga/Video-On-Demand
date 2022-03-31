@@ -1,11 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import styles from "./VideoPlayer.module.css";
+import { Context } from "../../context/context";
 
 const FORMATS_VIDEO = ["mp4", "ogv", "avi"];
 export default function VideoPlayer({ video, image }) {
   const [videoUrls, setVideUrls] = useState([]);
   const fullScreenVideoRef = useRef(null);
+  const { setIsVideoPlayed } = useContext(Context);
 
   useEffect(() => {
     const getAllPosibilitiesVideoUrls = () => {
@@ -37,8 +39,8 @@ export default function VideoPlayer({ video, image }) {
       autoPlay
       controls
       poster={image}
-      loop
       ref={fullScreenVideoRef}
+      onEnded={() => setIsVideoPlayed(false)}
     >
       {/* To play the video in all browsers */}
       {videoUrls.map((url, indx) => {

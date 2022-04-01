@@ -6,14 +6,15 @@ import styles from "./Carousel.module.css";
 
 export default function Carousel() {
   const [data, setData] = useState([]);
-  // To use the context
-  const { isVideoPlayed, setIsVideoPlayed } = useContext(Context);
+  const { isVideoPlayed, setIsVideoPlayed, setCardSelectedList } =
+    useContext(Context);
   const [cardSelected, setCardSelected] = useState({});
   const { image, mediaUrl } = cardSelected;
 
   const playVideo = (card) => {
     setIsVideoPlayed(true);
     setCardSelected(card);
+    setCardSelectedList((oldCard) => [...oldCard, card]);
   };
 
   useEffect(() => {

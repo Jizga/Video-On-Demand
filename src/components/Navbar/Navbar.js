@@ -1,26 +1,19 @@
-import React, { useContext } from "react";
-import { Link, Outlet } from "react-router-dom";
-import { Context } from "../../context/context";
+import React from "react";
+import { NavLink, Outlet } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
-  const { setIsVideoPlayed } = useContext(Context);
 
   return (
     <>
       <nav className={styles.nav}>
-        <Link to="/">
-          <h3
-            className={styles.btnNavbar}
-            onClick={() => setIsVideoPlayed(false)}
-          >
-            Home
-          </h3>
-        </Link>
+        <NavLink to="/" className={({isActive}) => (isActive ? styles.btnActive : styles.btnInActive)}>
+          <h3>Home</h3>
+        </NavLink>
 
-        <Link to="/history">
-          <h3 className={styles.btnNavbar}>History</h3>
-        </Link>
+        <NavLink to="/history" className={({isActive}) => (isActive ? styles.btnActive : styles.btnInActive)}>
+          <h3>History</h3>
+        </NavLink>
       </nav>
       <Outlet />
     </>

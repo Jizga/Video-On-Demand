@@ -1,11 +1,18 @@
 .nav {
-  background-color: grey;
+  background-color: rgb(26, 26, 26);
   display: flex;
   justify-content: space-between;
-  padding: 0 2rem;
-  color: white;
+  padding: 1rem 2rem;
 }
 
-.btnNavbar {
+.btnInActive {
   cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+.btnActive{
+  text-decoration: underline;
+  cursor: pointer;
+  color: white;
 }

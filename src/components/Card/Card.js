@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Card.module.css";
+import { Context } from "../../context/context";
+import { useNavigate } from "react-router-dom";
 
-export default function Card({ element, playVideo }) {
-  const { name, image, summary } = element;
+export default function Card({ element }) {
+  const { id, name, image, summary } = element;
   const [showDescription, setShowDescription] = useState(false);
+  const { setCardSelected, setWatchedList } = useContext(Context);
+
+  let navigate = useNavigate();
+
+  const playVideo = (card) => {
+    setCardSelected(card);
+    setWatchedList((oldCard) => [...oldCard, card]);
+    // To go at the Player component
+    navigate(`/video/${id}`);
+  };
 
   return (
-    <div className={styles.card} onClick={playVideo}>
+    <div className={styles.card} onClick={() => playVideo(element)}>
       <div
         className={styles.imageContainer}
         onMouseEnter={() => setShowDescription(true)}
@@ -30,5 +42,4 @@ export default function Card({ element, playVideo }) {
 
 Card.propTypes = {
   element: PropTypes.object,
-  playVideo: PropTypes.func,
 };

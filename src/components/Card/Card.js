@@ -7,16 +7,25 @@ import { useNavigate } from "react-router-dom";
 export default function Card({ element }) {
   const { id, name, image, summary } = element;
   const [showDescription, setShowDescription] = useState(false);
-  const { setCardSelected, setWatchedList } = useContext(Context);
+  const { setCardSelected, setWatchedList, watchedList } = useContext(Context);
 
   let navigate = useNavigate();
 
   const playVideo = (card) => {
     setCardSelected(card);
-    setWatchedList((oldCard) => [...oldCard, card]);
+    notRepeatVideoWatched(card)
     // To go at the Player component
     navigate(`/video/${id}`);
   };
+
+  const notRepeatVideoWatched = (video) => {
+    const watchedIds = []
+    watchedList.map(watched => watchedIds.push(watched.id))
+
+    if (!watchedIds.includes(video.id)){
+      setWatchedList((oldvideo) => [...oldvideo, video]);
+    }
+  }
 
   return (
     <div className={styles.card} onClick={() => playVideo(element)}>

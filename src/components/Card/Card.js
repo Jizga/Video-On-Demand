@@ -23,7 +23,7 @@ export default function Card({ element }) {
     watchedList.map((watched) => watchedIds.push(watched.id));
 
     if (!watchedIds.includes(video.id)) {
-      setWatchedList((oldvideo) => [...oldvideo, video]);
+      setWatchedList((oldvideo) => [video, ...oldvideo]);
     }
   };
 

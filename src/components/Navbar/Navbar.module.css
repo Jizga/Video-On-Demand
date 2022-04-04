@@ -3,16 +3,22 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
+  font-size: larger;
+  border-bottom: rgba(250, 229, 1, 0.286) solid;
 }
 
 .btnInActive {
   cursor: pointer;
-  color: white;
+  color: rgba(245, 245, 245, 0.695);
   text-decoration: none;
 }
 
+.btnInActive:hover {
+  color: rgb(250, 229, 1);
+}
+
 .btnActive{
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
-  color: white;
+  color: rgba(250, 229, 1, 0.732);
 }

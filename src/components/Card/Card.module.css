@@ -1,6 +1,7 @@
 .card {
-  margin: 0 0.5rem;
+  margin: 0 .5rem;
   position: relative;
+  cursor: pointer;
 }
 
 .truncate {
@@ -8,16 +9,27 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-weight: 200;
   }
 
 .imageContainer {
   width: 210px;
   height: 295px;
   overflow-y: scroll;
-  background-color: grey;
-  color: white;
+  background-color: rgba(66, 65, 65, 0.3);
+  color: whitesmoke;
+}
+
+.imageContainerActive {
+  width: 210px;
+  height: 295px;
+  overflow-y: scroll;
+  outline: 2px solid rgba(250, 229, 1, 0.732);
 }
 
 .description {
-  padding: .5rem .5rem;
+  padding: 1rem 1rem;
+  font-weight: 100;
+  color: rgb(250, 229, 1);
+
 }

@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import Carousel from "../components/Carousel/Carousel";
 import History from "../views/History/History";
 import Home from "../views/Home/Home";
 import Navbar from "../components/Navbar/Navbar";

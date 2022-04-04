@@ -30,7 +30,7 @@ export default function Card({ element }) {
   return (
     <div className={styles.card} onClick={() => playVideo(element)}>
       <div
-        className={styles.imageContainer}
+        className={showDescription ? styles.imageContainerActive : styles.imageContainer}
         onMouseEnter={() => setShowDescription(true)}
         onMouseLeave={() => setShowDescription(false)}
       >

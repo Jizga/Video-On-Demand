@@ -12,7 +12,7 @@ export default function Player({ video, image }) {
 
   useEffect(() => {
     const getAllPosibilitiesVideoUrls = () => {
-      if (video?.endsWith("mp4")) {
+      if (video && video.endsWith("mp4")) {
         /* To change the video path to play it in all browsers */
         const formatIndex = video.indexOf("mp4");
         const videoUrlWithoutFormat = video.slice(0, formatIndex);
@@ -25,14 +25,14 @@ export default function Player({ video, image }) {
 
     const fullScreenVideoPlayer = () => {
       const videoFullScreen = fullScreenVideoRef.current;
-      if (videoFullScreen?.requestFullscreen) {
+      if (videoFullScreen && videoFullScreen.requestFullscreen) {
         videoFullScreen.requestFullscreen();
       }
     };
 
     getAllPosibilitiesVideoUrls();
     fullScreenVideoPlayer();
-    
+
   }, []);
 
   return (

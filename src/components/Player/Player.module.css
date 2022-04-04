@@ -1,6 +1,6 @@
 .video {
   width: 100vw;
-  height: 95vh;
+  height: 90vh;
   object-fit: cover;
   z-index: 1000;
 }

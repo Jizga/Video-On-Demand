@@ -13,19 +13,19 @@ export default function Card({ element }) {
 
   const playVideo = (card) => {
     setCardSelected(card);
-    notRepeatVideoWatched(card)
+    notRepeatVideoWatched(card);
     // To go at the Player component
     navigate(`/video/${id}`);
   };
 
   const notRepeatVideoWatched = (video) => {
-    const watchedIds = []
-    watchedList.map(watched => watchedIds.push(watched.id))
+    const watchedIds = [];
+    watchedList.map((watched) => watchedIds.push(watched.id));
 
-    if (!watchedIds.includes(video.id)){
+    if (!watchedIds.includes(video.id)) {
       setWatchedList((oldvideo) => [...oldvideo, video]);
     }
-  }
+  };
 
   return (
     <div className={styles.card} onClick={() => playVideo(element)}>

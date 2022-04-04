@@ -1,6 +1,7 @@
 .video {
-  width: 100vw;
-  height: 90vh;
-  object-fit: cover;
-  z-index: 1000;
+  opacity: 1;
+}
+
+.videoHidden {
+  opacity: 0;
 }

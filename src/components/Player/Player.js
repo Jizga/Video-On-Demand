@@ -32,12 +32,15 @@ export default function Player({ video, image }) {
 
     getAllPosibilitiesVideoUrls();
     fullScreenVideoPlayer();
-
   }, []);
 
   return (
     <video
-      className={styles.video}
+      className={
+        fullScreenVideoRef.current && fullScreenVideoRef.current.poster !== ""
+          ? styles.video
+          : styles.videoHidden
+      }
       autoPlay
       controls
       poster={image}
@@ -54,7 +57,7 @@ export default function Player({ video, image }) {
       })}
     </video>
   );
-}
+}∫
 
 Player.propTypes = {
   video: PropTypes.string,

@@ -57,7 +57,7 @@ export default function Player({ video, image }) {
       })}
     </video>
   );
-}∫
+}
 
 Player.propTypes = {
   video: PropTypes.string,

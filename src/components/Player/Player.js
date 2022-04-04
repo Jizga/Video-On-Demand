@@ -23,6 +23,8 @@ export default function Player({ video, image }) {
       }
     };
 
+    // I need to insert this function in an 'onClick' to prevent the console error :
+    // https://javascript.plainenglish.io/user-gesture-restricted-web-apis-d794454453f7
     const fullScreenVideoPlayer = () => {
       const videoFullScreen = fullScreenVideoRef.current;
       if (videoFullScreen && videoFullScreen.requestFullscreen) {

@@ -1,13 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Card.module.css";
 import { Context } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 
-export default function Card({ element }) {
+export default function Card({ element, selected }) {
   const { id, name, image, summary } = element;
   const [showDescription, setShowDescription] = useState(false);
   const { setCardSelected, setWatchedList, watchedList } = useContext(Context);
+  const [isFocused, setIsFocused] = useState(false);
 
   let navigate = useNavigate();
 
@@ -27,10 +28,18 @@ export default function Card({ element }) {
     }
   };
 
+  useEffect(() => {
+    if(selected()) {
+      setIsFocused(true)
+    }
+  }, [])
+
   return (
     <div className={styles.card} onClick={() => playVideo(element)}>
       <div
-        className={showDescription ? styles.imageContainerActive : styles.imageContainer}
+        className={
+          isFocused || showDescription ? styles.imageContainerActive : styles.imageContainer
+        }
         onMouseEnter={() => setShowDescription(true)}
         onMouseLeave={() => setShowDescription(false)}
       >
@@ -51,4 +60,5 @@ export default function Card({ element }) {
 
 Card.propTypes = {
   element: PropTypes.object,
+  selected: PropTypes.func
 };

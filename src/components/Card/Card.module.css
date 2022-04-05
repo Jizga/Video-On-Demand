@@ -1,16 +1,16 @@
 .card {
-  margin: 0 .5rem;
+  margin: 0 0.5rem;
   position: relative;
   cursor: pointer;
 }
 
 .truncate {
-    width: 210px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: 200;
-  }
+  width: 210px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 200;
+}
 
 .imageContainer {
   width: 210px;
@@ -34,3 +34,16 @@
   font-weight: 100;
   color: rgb(250, 229, 1);
 }
+
+.focused {
+  box-shadow: 1px 1px 15px 5px grey;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.focusedTitle {
+  width: 210px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  color: rgba(250, 229, 1, 0.732);}

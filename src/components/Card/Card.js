@@ -35,10 +35,10 @@ export default function Card({ element, selected }) {
   }, [])
 
   return (
-    <div className={styles.card} onClick={() => playVideo(element)}>
+    <div className={isFocused ? styles.focused : styles.card} onClick={() => playVideo(element)}>
       <div
         className={
-          isFocused || showDescription ? styles.imageContainerActive : styles.imageContainer
+          showDescription ? styles.imageContainerActive : styles.imageContainer
         }
         onMouseEnter={() => setShowDescription(true)}
         onMouseLeave={() => setShowDescription(false)}
@@ -53,7 +53,7 @@ export default function Card({ element, selected }) {
           <img src={image} alt={name} />
         )}
       </div>
-      <h3 className={styles.truncate}>{name}</h3>
+      <h3 className={isFocused ? styles.focusedTitle : styles.truncate}>{name}</h3>
     </div>
   );
 }

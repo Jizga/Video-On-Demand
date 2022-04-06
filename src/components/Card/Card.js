@@ -1,41 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Card.module.css";
-import { Context } from "../../context/context";
-import { useNavigate } from "react-router-dom";
-import UseEvent from "../../hooks/UseEvent";
-
-export default function Card({ element, selected, cardIndx }) {
-  const { id, name, image, summary } = element;
+export default function Card({ element, playVideo, selected, cardIndx }) {
+  const { name, image, summary } = element;
   const [showDescription, setShowDescription] = useState(false);
-  const { setCardSelected, setWatchedList, watchedList } = useContext(Context);
   const [isFocused, setIsFocused] = useState(false);
-
-  let navigate = useNavigate();
-
-  const playVideo = (card) => {
-    setCardSelected(card);
-    notRepeatVideoWatched(card);
-    // To go at the Player component
-    navigate(`/video/${id}`);
-  };
-
-  const notRepeatVideoWatched = (video) => {
-    const watchedIds = [];
-    watchedList.map((watched) => watchedIds.push(watched.id));
-
-    if (!watchedIds.includes(video.id)) {
-      setWatchedList((oldvideo) => [video, ...oldvideo]);
-    }
-  };
-
-  const playVideoWhenPressingEnter = ({ key }) => {
-    if (key === "Enter") {
-      playVideo(element);
-    }
-  };
-
-  UseEvent("keydown", playVideoWhenPressingEnter);
 
   useEffect(() => {
     if (selected()) {
@@ -76,6 +45,7 @@ export default function Card({ element, selected, cardIndx }) {
 
 Card.propTypes = {
   element: PropTypes.object,
+  playVideo: PropTypes.func,
   selected: PropTypes.func,
   cardIndx: PropTypes.number,
 };

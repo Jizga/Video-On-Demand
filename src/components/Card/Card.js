@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./Card.module.css";
 import { Context } from "../../context/context";
 import { useNavigate } from "react-router-dom";
+import UseEvent from "../../hooks/UseEvent";
 
 export default function Card({ element, selected }) {
   const { id, name, image, summary } = element;
@@ -28,14 +29,25 @@ export default function Card({ element, selected }) {
     }
   };
 
-  useEffect(() => {
-    if(selected()) {
-      setIsFocused(true)
+  const playVideoWhenPressingEnter = ({ key }) => {
+    if (key === "Enter") {
+      playVideo(element);
     }
-  }, [])
+  };
+
+  UseEvent("keydown", playVideoWhenPressingEnter);
+
+  useEffect(() => {
+    if (selected()) {
+      setIsFocused(true);
+    }
+  }, []);
 
   return (
-    <div className={isFocused ? styles.focused : styles.card} onClick={() => playVideo(element)}>
+    <div
+      className={isFocused ? styles.focused : styles.card}
+      onClick={() => playVideo(element)}
+    >
       <div
         className={
           showDescription ? styles.imageContainerActive : styles.imageContainer
@@ -53,12 +65,14 @@ export default function Card({ element, selected }) {
           <img src={image} alt={name} />
         )}
       </div>
-      <h3 className={isFocused ? styles.focusedTitle : styles.truncate}>{name}</h3>
+      <h3 className={isFocused ? styles.focusedTitle : styles.truncate}>
+        {name}
+      </h3>
     </div>
   );
 }
 
 Card.propTypes = {
   element: PropTypes.object,
-  selected: PropTypes.func
+  selected: PropTypes.func,
 };

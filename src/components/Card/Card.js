@@ -5,7 +5,7 @@ import { Context } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 import UseEvent from "../../hooks/UseEvent";
 
-export default function Card({ element, selected }) {
+export default function Card({ element, selected, cardIndx }) {
   const { id, name, image, summary } = element;
   const [showDescription, setShowDescription] = useState(false);
   const { setCardSelected, setWatchedList, watchedList } = useContext(Context);
@@ -40,8 +40,10 @@ export default function Card({ element, selected }) {
   useEffect(() => {
     if (selected()) {
       setIsFocused(true);
+    } else {
+      setIsFocused(false);
     }
-  }, []);
+  }, [cardIndx]);
 
   return (
     <div
@@ -75,4 +77,5 @@ export default function Card({ element, selected }) {
 Card.propTypes = {
   element: PropTypes.object,
   selected: PropTypes.func,
+  cardIndx: PropTypes.number,
 };

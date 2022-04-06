@@ -2,19 +2,30 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Card from "../Card/Card";
 import styles from "./Carousel.module.css";
+import UseEvent from "../../hooks/UseEvent";
 
 export default function Carousel({ data }) {
   const [cardIndx, setcardIndx] = useState(0);
 
-  const isElementSelected = (cardSelectedIndx, idx) => {
+  const isElementSelected = (elemtIndex, cardIdx) => {
     let isSelected = false;
-    if (cardSelectedIndx === idx) {
+    if (elemtIndex === cardIdx) {
       isSelected = true;
     } else {
       isSelected = false;
     }
     return isSelected;
   };
+
+  const handler = ({ key }) => {
+    if (key === "ArrowRight" && cardIndx < data.length) {
+      setcardIndx(cardIndx + 1);
+    } else if (key === "ArrowLeft" && cardIndx > 0) {
+      setcardIndx(cardIndx - 1);
+    }
+  };
+
+  UseEvent("keydown", handler);
 
   return (
     <div className={styles.carousel}>
@@ -24,6 +35,7 @@ export default function Carousel({ data }) {
               key={dataElement.id}
               element={dataElement}
               selected={() => isElementSelected(indx, cardIndx)}
+              cardIndx={cardIndx}
             />
           ))
         : "Loading..."}

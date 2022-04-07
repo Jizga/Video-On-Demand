@@ -10,7 +10,7 @@ export default function Carousel({ data }) {
   const [cardIndx, setcardIndx] = useState(0);
   const { cardSelected, setCardSelected, setWatchedList, watchedList } =
     useContext(Context);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const playVideo = (card) => {
     setCardSelected(card);
@@ -44,10 +44,8 @@ export default function Carousel({ data }) {
     } else if (key === "ArrowLeft" && cardIndx > 0) {
       setcardIndx(cardIndx - 1);
     } else if (key === "Enter") {
-      console.log("cardSelected al presionar ENTER --- ", cardSelected);
       playVideo(cardSelected);
     }
-    return cardIndx;
   };
 
   UseEvent("keydown", handler);

@@ -8,7 +8,7 @@ const FORMATS_VIDEO = ["mp4", "ogv", "avi"];
 export default function Player({ video, image }) {
   const [videoUrls, setVideoUrls] = useState([]);
   const fullScreenVideoRef = useRef(null);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getAllPosibilitiesVideoUrls = () => {
@@ -23,8 +23,6 @@ export default function Player({ video, image }) {
       }
     };
 
-    // I need to insert this function in an 'onClick' to prevent the console error :
-    // https://javascript.plainenglish.io/user-gesture-restricted-web-apis-d794454453f7
     const fullScreenVideoPlayer = () => {
       const videoFullScreen = fullScreenVideoRef.current;
       if (videoFullScreen && videoFullScreen.requestFullscreen) {

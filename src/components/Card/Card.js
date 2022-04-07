@@ -1,22 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Card.module.scss";
-export default function Card({ element, playVideo, selected, cardIndx }) {
+export default function Card({ element, playVideo, selected }) {
   const { name, image, summary } = element;
   const [showDescription, setShowDescription] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
-
-  useEffect(() => {
-    if (selected()) {
-      setIsFocused(true);
-    } else {
-      setIsFocused(false);
-    }
-  }, [cardIndx]);
 
   return (
     <div
-      className={isFocused ? styles.focused : styles.card}
+      className={selected ? styles.focused : styles.card}
       onClick={() => playVideo(element)}
     >
       <div
@@ -36,7 +27,7 @@ export default function Card({ element, playVideo, selected, cardIndx }) {
           <img src={image} alt={name} />
         )}
       </div>
-      <h3 className={isFocused ? styles.focusedTitle : styles.truncate}>
+      <h3 className={selected ? styles.focusedTitle : styles.truncate}>
         {name}
       </h3>
     </div>
@@ -47,5 +38,4 @@ Card.propTypes = {
   element: PropTypes.object,
   playVideo: PropTypes.func,
   selected: PropTypes.func,
-  cardIndx: PropTypes.number,
 };

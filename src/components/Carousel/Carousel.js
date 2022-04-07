@@ -1,21 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Card from "../Card/Card";
 import UseEvent from "../../hooks/UseEvent";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context/context";
-
 import styles from "./Carousel.module.scss";
-
-
 export default function Carousel({ data }) {
   const [cardIndx, setcardIndx] = useState(0);
   const { cardSelected, setCardSelected, setWatchedList, watchedList } =
     useContext(Context);
   const navigate = useNavigate();
 
+  const cardRef = useRef(null);
+
   const playVideo = (card) => {
-    setCardSelected(card);
+    console.log("card en PLAY VIDEO : ", card);
+
+    setCardSelected(card)
+
+    console.log("cardSelected en PLAY VIDEO : ", cardSelected);
+
     notRepeatVideoWatched(card);
     // To go at the Player component
     navigate(`/video/${card.id}`);
@@ -46,30 +50,36 @@ export default function Carousel({ data }) {
     } else if (key === "ArrowLeft" && cardIndx > 0) {
       setcardIndx(cardIndx - 1);
     } else if (key === "Enter") {
-      playVideo(cardSelected);
+      data?.forEach((dataElement, index) => {
+        if (index === cardIndx) {
+          // playVideo(dataElement);
+          const cardSelectRef = cardRef.current;
+          cardSelectRef.children[cardIndx].click()
+
+        }
+      });
     }
   };
 
   UseEvent("keydown", handler);
 
-  useEffect(() => {
-    data?.forEach((dataElement, index) => {
-      if (index === cardIndx) {
-        setCardSelected(dataElement);
-      }
-    });
-  }, [cardIndx, data]);
+  // useEffect(() => {
+  //   data?.forEach((dataElement, index) => {
+  //     if (index === cardIndx) {
+  //       setCardSelected(dataElement);
+  //     }
+  //   });
+  // }, [cardIndx, data]);
 
   return (
-    <div className={styles.carousel}>
+    <div className={styles.carousel} ref={cardRef}>
       {data.length
         ? data.map((dataElement, indx) => (
             <Card
               key={dataElement.id}
               element={dataElement}
               playVideo={playVideo}
-              selected={() => isElementSelected(indx, cardIndx)}
-              cardIndx={cardIndx}
+              selected={isElementSelected(indx, cardIndx)}
             />
           ))
         : "Loading..."}

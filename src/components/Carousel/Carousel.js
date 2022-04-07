@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Card from "../Card/Card";
-import styles from "./Carousel.module.css";
 import UseEvent from "../../hooks/UseEvent";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context/context";
+
+import styles from "./Carousel.module.scss";
+
 
 export default function Carousel({ data }) {
   const [cardIndx, setcardIndx] = useState(0);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
-import styles from "./Player.module.css";
+import styles from "./Player.module.scss";
 import { useNavigate } from "react-router-dom";
 
 const FORMATS_VIDEO = ["mp4", "ogv", "avi"];

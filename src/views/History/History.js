@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../../context/context";
 import Carousel from "../../components/Carousel/Carousel";
-import styles from "./History.module.css";
+import styles from "./History.module.scss";
 
 export default function History() {
   const { watchedList } = useContext(Context);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./App.scss";
 import { Context } from "./context/context";
 import RoutesComponent from "./route/RoutesComponent";
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import styles from "./Card.module.css";
+import styles from "./Card.module.scss";
 export default function Card({ element, playVideo, selected, cardIndx }) {
   const { name, image, summary } = element;
   const [showDescription, setShowDescription] = useState(false);

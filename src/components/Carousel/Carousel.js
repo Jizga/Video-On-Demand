@@ -16,7 +16,7 @@ export default function Carousel({ data }) {
   const playVideo = (card) => {
     console.log("card en PLAY VIDEO : ", card);
 
-    setCardSelected(card)
+    setCardSelected(card);
 
     console.log("cardSelected en PLAY VIDEO : ", cardSelected);
 
@@ -46,16 +46,15 @@ export default function Carousel({ data }) {
 
   const handler = ({ key }) => {
     if (key === "ArrowRight" && cardIndx < data.length) {
-      setcardIndx(cardIndx + 1);
+      setcardIndx((prev) => prev + 1);
     } else if (key === "ArrowLeft" && cardIndx > 0) {
-      setcardIndx(cardIndx - 1);
+      setcardIndx((prev) => prev - 1);
     } else if (key === "Enter") {
       data?.forEach((dataElement, index) => {
         if (index === cardIndx) {
           // playVideo(dataElement);
           const cardSelectRef = cardRef.current;
-          cardSelectRef.children[cardIndx].click()
-
+          cardSelectRef.children[cardIndx].click();
         }
       });
     }

@@ -31,8 +31,8 @@ export default function Player({ video, image }) {
     };
 
     getAllPosibilitiesVideoUrls();
-    fullScreenVideoPlayer();
-  }, []);
+    // fullScreenVideoPlayer();
+  }, [video]);
 
   return (
     <video

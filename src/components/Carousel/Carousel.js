@@ -7,19 +7,12 @@ import { Context } from "../../context/context";
 import styles from "./Carousel.module.scss";
 export default function Carousel({ data }) {
   const [cardIndx, setcardIndx] = useState(0);
-  const { cardSelected, setCardSelected, setWatchedList, watchedList } =
-    useContext(Context);
+  const { setCardSelected, setWatchedList, watchedList } = useContext(Context);
   const navigate = useNavigate();
-
   const cardRef = useRef(null);
 
   const playVideo = (card) => {
-    console.log("card en PLAY VIDEO : ", card);
-
     setCardSelected(card);
-
-    console.log("cardSelected en PLAY VIDEO : ", cardSelected);
-
     notRepeatVideoWatched(card);
     // To go at the Player component
     navigate(`/video/${card.id}`);
@@ -50,9 +43,10 @@ export default function Carousel({ data }) {
     } else if (key === "ArrowLeft" && cardIndx > 0) {
       setcardIndx((prev) => prev - 1);
     } else if (key === "Enter") {
+      // It does not work well
       data?.forEach((dataElement, index) => {
         if (index === cardIndx) {
-          // playVideo(dataElement);
+          // To active the card selected's play function
           const cardSelectRef = cardRef.current;
           cardSelectRef.children[cardIndx].click();
         }
@@ -61,14 +55,6 @@ export default function Carousel({ data }) {
   };
 
   UseEvent("keydown", handler);
-
-  // useEffect(() => {
-  //   data?.forEach((dataElement, index) => {
-  //     if (index === cardIndx) {
-  //       setCardSelected(dataElement);
-  //     }
-  //   });
-  // }, [cardIndx, data]);
 
   return (
     <div className={styles.carousel} ref={cardRef}>

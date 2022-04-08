@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Card from "../Card/Card";
 import UseEvent from "../../hooks/UseEvent";

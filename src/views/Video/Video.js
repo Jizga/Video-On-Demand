@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
 import Player from "../../components/Player/Player";
-import { Context } from "../../context/context";
+import { useCarouselContext } from "../../context/context";
 import styles from "./Video.module.scss";
 
 export default function Video() {
-  const { cardSelected } = useContext(Context);
+  const { cardSelected } = useCarouselContext();
   const { mediaUrl, image } = cardSelected;
 
   return (

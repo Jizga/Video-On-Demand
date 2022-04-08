@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
-import { Context } from "../../context/context";
+import React, { useEffect } from "react";
+import { useAppContext } from "../../context/context";
 import Carousel from "../../components/Carousel/Carousel";
 
 export default function Home() {
-  const { data, setData } = useContext(Context);
+  const { data, setData } = useAppContext();
 
   useEffect(() => {
     const getData = async () => {

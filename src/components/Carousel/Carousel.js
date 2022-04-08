@@ -1,13 +1,15 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Card from "../Card/Card";
 import UseEvent from "../../hooks/UseEvent";
 import { useNavigate } from "react-router-dom";
-import { Context } from "../../context/context";
 import styles from "./Carousel.module.scss";
+import { useAppContext, useCarouselContext } from "../../context/context";
 export default function Carousel({ data }) {
   const [cardIndx, setcardIndx] = useState(0);
-  const { setCardSelected, setWatchedList, watchedList } = useContext(Context);
+  const { setWatchedList, watchedList } = useAppContext();
+  const { setCardSelected } = useCarouselContext();
+
   const navigate = useNavigate();
   const cardRef = useRef(null);
 

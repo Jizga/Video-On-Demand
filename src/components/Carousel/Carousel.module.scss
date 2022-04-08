@@ -2,16 +2,16 @@
   padding: 3.5rem 1rem;
   display: flex;
   overflow-x: scroll;
+}
 
-  ::-webkit-scrollbar {
-    width: 0;
-  }
+::-webkit-scrollbar {
+  width: 0;
+}
 
-  ::-webkit-scrollbar-track {
-    display: none;
-  }
+::-webkit-scrollbar-track {
+  display: none;
+}
 
-  ::-webkit-scrollbar-thumb {
-    display: none;
-  }
+::-webkit-scrollbar-thumb {
+  display: none;
 }

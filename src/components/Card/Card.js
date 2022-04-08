@@ -37,5 +37,5 @@ export default function Card({ element, playVideo, selected }) {
 Card.propTypes = {
   element: PropTypes.object,
   playVideo: PropTypes.func,
-  selected: PropTypes.func,
+  selected: PropTypes.bool,
 };

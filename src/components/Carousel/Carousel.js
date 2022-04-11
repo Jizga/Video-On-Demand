@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Card from "../Card/Card";
 import UseEvent from "../../hooks/UseEvent";
@@ -8,7 +8,7 @@ import { useAppContext, useCarouselContext } from "../../context/context";
 export default function Carousel({ data }) {
   const [cardIndx, setcardIndx] = useState(0);
   const { setWatchedList, watchedList } = useAppContext();
-  const { setCardSelected } = useCarouselContext();
+  const { cardSelected, setCardSelected } = useCarouselContext();
 
   const navigate = useNavigate();
   const cardRef = useRef(null);
@@ -57,6 +57,15 @@ export default function Carousel({ data }) {
   };
 
   UseEvent("keydown", handler);
+
+  useEffect(() => {
+    // To keep the card focused after playing its video
+    data?.forEach((dataElement, index) => {
+      if (dataElement.id === cardSelected.id) {
+        setcardIndx(index);
+      }
+    });
+  }, [cardSelected]);
 
   return (
     <div className={styles.carousel} ref={cardRef}>

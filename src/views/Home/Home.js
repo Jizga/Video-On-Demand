@@ -19,7 +19,7 @@ export default function Home() {
     };
 
     getData();
-  }, [data]);
+  }, []);
 
   return <div>{data.length ? <Carousel data={data} /> : "Loading..."}</div>;
 }

@@ -5,10 +5,15 @@ import UseEvent from "../../hooks/UseEvent";
 import { useNavigate } from "react-router-dom";
 import styles from "./Carousel.module.scss";
 import { useAppContext, useCarouselContext } from "../../context/context";
+
+const CARD_WIDTH = 210;
+const CARD_WHITE_SPACE = 8;
 export default function Carousel({ data }) {
   const [cardIndx, setcardIndx] = useState(0);
   const { setWatchedList, watchedList } = useAppContext();
   const { cardSelected, setCardSelected } = useCarouselContext();
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [carouselElemnts, setCarouselElemnts] = useState([]);
 
   const navigate = useNavigate();
   const cardRef = useRef(null);
@@ -67,10 +72,19 @@ export default function Carousel({ data }) {
     });
   }, [cardSelected]);
 
+  useEffect(() => {
+    // Cards number inside the carousel is adapting to the width of the screen
+    const cardElementsNumber = Math.trunc(
+      screenWidth / (CARD_WIDTH + CARD_WHITE_SPACE)
+    );
+    const elements = data.slice(0, cardElementsNumber);
+    setCarouselElemnts(elements);
+  }, [screenWidth]);
+
   return (
     <div className={styles.carousel} ref={cardRef}>
-      {data.length
-        ? data.map((dataElement, indx) => (
+      {carouselElemnts.length
+        ? carouselElemnts.map((dataElement, indx) => (
             <Card
               key={dataElement.id}
               element={dataElement}

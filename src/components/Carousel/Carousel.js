@@ -5,6 +5,8 @@ import UseEvent from "../../hooks/UseEvent";
 import { useNavigate } from "react-router-dom";
 import styles from "./Carousel.module.scss";
 import { useAppContext, useCarouselContext } from "../../context/context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro"; // <-- import styles to be used
 
 const CARD_WIDTH = 210;
 const CARD_WHITE_SPACE = 8;
@@ -13,7 +15,9 @@ export default function Carousel({ data }) {
   const { setWatchedList, watchedList } = useAppContext();
   const { cardSelected, setCardSelected } = useCarouselContext();
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [cardElementsNumber, setcardElementsNumber] = useState(0);
   const [carouselElemnts, setCarouselElemnts] = useState([]);
+  const [arrowClick, setarrowClick] = useState(0);
 
   const navigate = useNavigate();
   const cardRef = useRef(null);
@@ -63,6 +67,33 @@ export default function Carousel({ data }) {
 
   UseEvent("keydown", handler);
 
+  const previus = () => {
+    console.log("PREVIUS");
+  };
+
+  const next = () => {
+    console.log("NEXT");
+
+    setCarouselElemnts((prev) => {
+      console.log("prev INIT --->>> ", prev);
+      console.log(
+        "cardElementsNumber + arrowClick --->>> ",
+        cardElementsNumber + arrowClick
+      );
+
+      console.log(
+        "data[cardElementsNumber + arrowClick] --->>> ",
+        data[cardElementsNumber + arrowClick]
+      );
+
+      prev.shift();
+      prev.push(data[cardElementsNumber + arrowClick]);
+      setarrowClick((prev) => prev + 1);
+      console.log("prev --->>> ", prev);
+      return prev;
+    });
+  };
+
   useEffect(() => {
     // To keep the card focused after playing its video
     data?.forEach((dataElement, index) => {
@@ -74,15 +105,20 @@ export default function Carousel({ data }) {
 
   useEffect(() => {
     // Cards number inside the carousel is adapting to the width of the screen
-    const cardElementsNumber = Math.trunc(
-      screenWidth / (CARD_WIDTH + CARD_WHITE_SPACE)
+    setcardElementsNumber(
+      Math.trunc(screenWidth / (CARD_WIDTH + CARD_WHITE_SPACE))
     );
     const elements = data.slice(0, cardElementsNumber);
     setCarouselElemnts(elements);
-  }, [screenWidth]);
+  }, [screenWidth, cardElementsNumber]);
 
   return (
     <div className={styles.carousel} ref={cardRef}>
+      <FontAwesomeIcon
+        icon={solid("circle-chevron-left")}
+        className={styles.arrow}
+        onClick={() => previus()}
+      />
       {carouselElemnts.length
         ? carouselElemnts.map((dataElement, indx) => (
             <Card
@@ -93,6 +129,11 @@ export default function Carousel({ data }) {
             />
           ))
         : "Loading..."}
+      <FontAwesomeIcon
+        icon={solid("circle-chevron-right")}
+        className={styles.arrow}
+        onClick={() => next()}
+      />
     </div>
   );
 }

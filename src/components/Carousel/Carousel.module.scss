@@ -1,15 +1,18 @@
-.carousel {
-  padding: 3.5rem 1rem;
+.container {
   display: flex;
-  overflow-x: scroll;
-  display: flex;
-  position: absolute;
 
   .arrow {
-    position: relative;
-    top: 120;
+    // position: relative;
+    // top: 120;
     font-size: 50px;
     cursor: pointer;
+  }
+
+  .carousel {
+    padding: 3.5rem 1rem;
+    display: flex;
+    overflow-x: scroll;
+    display: flex;
   }
 }
 

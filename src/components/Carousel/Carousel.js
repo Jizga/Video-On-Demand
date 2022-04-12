@@ -55,7 +55,7 @@ export default function Carousel({ data }) {
       setcardIndx((prev) => prev - 1);
     } else if (key === "Enter") {
       // It does not work well
-      data?.forEach((dataElement, index) => {
+      carouselElemnts?.forEach((index) => {
         if (index === cardIndx) {
           // To active the card selected's play function
           const cardSelectRef = cardRef.current;
@@ -72,26 +72,12 @@ export default function Carousel({ data }) {
   };
 
   const next = () => {
-    console.log("NEXT");
-
-    setCarouselElemnts((prev) => {
-      console.log("prev INIT --->>> ", prev);
-      console.log(
-        "cardElementsNumber + arrowClick --->>> ",
-        cardElementsNumber + arrowClick
-      );
-
-      console.log(
-        "data[cardElementsNumber + arrowClick] --->>> ",
-        data[cardElementsNumber + arrowClick]
-      );
-
-      prev.shift();
-      prev.push(data[cardElementsNumber + arrowClick]);
-      setarrowClick((prev) => prev + 1);
-      console.log("prev --->>> ", prev);
-      return prev;
-    });
+    if (data[cardElementsNumber + arrowClick]) {
+      carouselElemnts.shift();
+      carouselElemnts.push(data[cardElementsNumber + arrowClick]);
+      setCarouselElemnts(carouselElemnts);
+      setarrowClick((p) => p + 1);
+    }
   };
 
   useEffect(() => {
@@ -113,22 +99,24 @@ export default function Carousel({ data }) {
   }, [screenWidth, cardElementsNumber]);
 
   return (
-    <div className={styles.carousel} ref={cardRef}>
+    <div className={styles.container}>
       <FontAwesomeIcon
         icon={solid("circle-chevron-left")}
         className={styles.arrow}
         onClick={() => previus()}
       />
-      {carouselElemnts.length
-        ? carouselElemnts.map((dataElement, indx) => (
-            <Card
-              key={dataElement.id}
-              element={dataElement}
-              playVideo={playVideo}
-              selected={isElementSelected(indx, cardIndx)}
-            />
-          ))
-        : "Loading..."}
+      <div className={styles.carousel} ref={cardRef}>
+        {carouselElemnts.length
+          ? carouselElemnts.map((dataElement, indx) => (
+              <Card
+                key={dataElement.id}
+                element={dataElement}
+                playVideo={playVideo}
+                selected={isElementSelected(indx, cardIndx)}
+              />
+            ))
+          : "Loading..."}
+      </div>
       <FontAwesomeIcon
         icon={solid("circle-chevron-right")}
         className={styles.arrow}

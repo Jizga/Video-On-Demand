@@ -51,8 +51,26 @@ export default function Carousel({ data }) {
   const handler = ({ key }) => {
     if (key === "ArrowRight" && cardIndx < data.length) {
       setcardIndx((prev) => prev + 1);
+      if (cardIndx === carouselElemnts.length - 1) {
+        // Change the card focused
+        setcardIndx(carouselElemnts.length - 2);
+        next();
+      }
     } else if (key === "ArrowLeft" && cardIndx > 0) {
       setcardIndx((prev) => prev - 1);
+      // previous();
+
+      // if (cardIndx <= carouselElemnts.length - 1) {
+      //   console.log('cardIndx 22222 -->> ', cardIndx);
+
+      //   console.log('carouselElemnts.length - 1 -->> ', carouselElemnts.length - 1);
+
+      //   previous();
+      // }
+
+      // if (cardIndx === carouselElemnts.length - 1) {
+      //   previous();
+      // }
     } else if (key === "Enter") {
       // It does not work well
       carouselElemnts?.forEach((index) => {

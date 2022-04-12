@@ -67,8 +67,13 @@ export default function Carousel({ data }) {
 
   UseEvent("keydown", handler);
 
-  const previus = () => {
-    console.log("PREVIUS");
+  const previous = () => {
+    if (arrowClick >= 1) {
+      carouselElemnts.unshift(data[arrowClick - 1]);
+      carouselElemnts.pop();
+      setCarouselElemnts(carouselElemnts);
+      setarrowClick((p) => p - 1);
+    }
   };
 
   const next = () => {
@@ -103,7 +108,7 @@ export default function Carousel({ data }) {
       <FontAwesomeIcon
         icon={solid("circle-chevron-left")}
         className={styles.arrow}
-        onClick={() => previus()}
+        onClick={() => previous()}
       />
       <div className={styles.carousel} ref={cardRef}>
         {carouselElemnts.length

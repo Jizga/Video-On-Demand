@@ -103,6 +103,17 @@ export default function Carousel({ data }) {
     setCarouselElemnts(elements);
   }, [screenWidth, cardElementsNumber]);
 
+  useEffect(() => {
+    // Listen window resize event
+    window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
+    // Stop listening when component is unmounted
+    return () => {
+      window.removeEventListener("resize", () =>
+        setScreenWidth(window.innerWidth)
+      );
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <FontAwesomeIcon

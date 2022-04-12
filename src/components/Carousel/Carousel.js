@@ -48,32 +48,27 @@ export default function Carousel({ data }) {
     return isSelected;
   };
 
-  const handler = ({ key }) => {
-    if (key === "ArrowRight" && cardIndx < data.length) {
-      setcardIndx((prev) => prev + 1);
+  const keyboard = ({ key }) => {
+    if (key === "ArrowRight") {
+      setcardIndx((prev) => {
+        if (prev < data.length) {
+          return prev + 1;
+        } else {
+          return prev;
+        }
+      });
       if (cardIndx === carouselElemnts.length - 1) {
         // Change the card focused
         setcardIndx(carouselElemnts.length - 2);
         next();
       }
-    } else if (key === "ArrowLeft" && cardIndx > 0) {
+    } else if (key === "ArrowLeft") {
+      // NO FUNCIONA BIEN!!!
       setcardIndx((prev) => prev - 1);
-      // previous();
-
-      // if (cardIndx <= carouselElemnts.length - 1) {
-      //   console.log('cardIndx 22222 -->> ', cardIndx);
-
-      //   console.log('carouselElemnts.length - 1 -->> ', carouselElemnts.length - 1);
-
-      //   previous();
-      // }
-
-      // if (cardIndx === carouselElemnts.length - 1) {
-      //   previous();
-      // }
+      previous();
     } else if (key === "Enter") {
       // It does not work well
-      carouselElemnts?.forEach((index) => {
+      carouselElemnts?.forEach((dataElement, index) => {
         if (index === cardIndx) {
           // To active the card selected's play function
           const cardSelectRef = cardRef.current;
@@ -83,9 +78,11 @@ export default function Carousel({ data }) {
     }
   };
 
-  UseEvent("keydown", handler);
+  UseEvent("keydown", keyboard);
 
   const previous = () => {
+    console.log("cardIndx -- ", cardIndx);
+
     if (arrowClick >= 1) {
       carouselElemnts.unshift(data[arrowClick - 1]);
       carouselElemnts.pop();

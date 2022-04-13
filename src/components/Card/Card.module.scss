@@ -41,10 +41,11 @@
 }
 
 .focusedTitle {
-  width: 210px;
+  width: 172px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
   color: rgba(250, 229, 1, 0.732);
+  padding: 0 1rem;
 }

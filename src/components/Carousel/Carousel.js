@@ -138,7 +138,7 @@ export default function Carousel({ data }) {
     <div className={styles.container}>
       <FontAwesomeIcon
         icon={solid("circle-chevron-left")}
-        className={styles.arrow}
+        className={styles["arrow-left"]}
         onClick={() => previous()}
       />
       <div className={styles.carousel} ref={cardRef}>
@@ -155,7 +155,7 @@ export default function Carousel({ data }) {
       </div>
       <FontAwesomeIcon
         icon={solid("circle-chevron-right")}
-        className={styles.arrow}
+        className={styles["arrow-right"]}
         onClick={() => next()}
       />
     </div>

@@ -1,17 +1,33 @@
 .container {
   display: flex;
+  position: relative;
+  justify-content: center;
+  margin-top: 2rem;
 
-  .arrow {
-    font-size: 50px;
+  .arrow-right {
+    position: absolute;
+    font-size: 80px;
     cursor: pointer;
-    margin-top: 15%;
+    z-index: 2;
+    top: 30%;
+    right: 5%;
+    color: rgba(250, 229, 1, 0.732);
+  }
+
+  .arrow-left {
+    position: absolute;
+    font-size: 80px;
+    cursor: pointer;
+    z-index: 2;
+    top: 30%;
+    left: 5%;
+    color: rgba(250, 229, 1, 0.732);
   }
 
   .carousel {
-    padding: 3.5rem 1rem;
     display: flex;
     overflow-x: scroll;
-    display: flex;
+    padding: 1rem;
   }
 }
 

@@ -63,8 +63,15 @@ export default function Carousel({ data }) {
         next();
       }
     } else if (key === "ArrowLeft") {
-      // NO FUNCIONA BIEN!!!
-      setcardIndx((prev) => prev - 1);
+      // NO FUNCIONA BIEN!!! Se salta uno
+      setcardIndx((prev) => {
+        if (prev) {
+          console.log("prev - 1 --- ", prev - 1);
+          return prev - 1;
+        } else {
+          return prev;
+        }
+      });
       previous();
     } else if (key === "Enter") {
       // It does not work well
@@ -81,8 +88,6 @@ export default function Carousel({ data }) {
   UseEvent("keydown", keyboard);
 
   const previous = () => {
-    console.log("cardIndx -- ", cardIndx);
-
     if (arrowClick >= 1) {
       carouselElemnts.unshift(data[arrowClick - 1]);
       carouselElemnts.pop();

@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Card.module.scss";
+import classNames from "classnames";
 export default function Card({ element, playVideo, selected }) {
   const { name, image, summary } = element;
   const [showDescription, setShowDescription] = useState(false);
 
   return (
     <div
-      className={selected ? styles.focused : styles.card}
+      className={classNames(styles.card, { [styles.focused]: selected })}
       onClick={() => playVideo(element)}
     >
       <div
-        className={
-          showDescription ? styles.imageContainerActive : styles.imageContainer
-        }
+        className={classNames(styles.imageContainer, {
+          [styles.imageContainerActive]: showDescription,
+        })}
         onMouseEnter={() => setShowDescription(true)}
         onMouseLeave={() => setShowDescription(false)}
       >
@@ -27,7 +28,11 @@ export default function Card({ element, playVideo, selected }) {
           <img src={image} alt={name} />
         )}
       </div>
-      <h3 className={selected ? styles.focusedTitle : styles.truncate}>
+      <h3
+        className={classNames(styles.truncate, {
+          [styles.focusedTitle]: selected,
+        })}
+      >
         {name}
       </h3>
     </div>

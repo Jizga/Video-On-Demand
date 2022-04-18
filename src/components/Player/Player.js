@@ -36,11 +36,7 @@ export default function Player({ video, image }) {
 
   return (
     <video
-      className={
-        fullScreenVideoRef.current && fullScreenVideoRef.current.poster !== ""
-          ? styles.video
-          : styles.videoHidden
-      }
+      className={styles.video}
       autoPlay
       controls
       poster={image}

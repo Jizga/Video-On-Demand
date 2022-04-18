@@ -5,23 +5,11 @@
   margin-top: 2rem;
 
   .arrow-right {
-    position: absolute;
-    font-size: 80px;
-    cursor: pointer;
-    z-index: 2;
-    top: 30%;
-    right: 5%;
-    color: rgba(250, 229, 1, 0.732);
+    opacity: 0;
   }
 
   .arrow-left {
-    position: absolute;
-    font-size: 80px;
-    cursor: pointer;
-    z-index: 2;
-    top: 30%;
-    left: 5%;
-    color: rgba(250, 229, 1, 0.732);
+    opacity: 0;
   }
 
   .carousel {
@@ -41,4 +29,36 @@
 
 ::-webkit-scrollbar-thumb {
   display: none;
+}
+
+.container:hover {
+  .arrow-right {
+    position: absolute;
+    font-size: 80px;
+    cursor: pointer;
+    z-index: 2;
+    top: 30%;
+    right: 5%;
+    color: rgba(36, 36, 35, 0.732);
+    opacity: 1;
+  }
+
+  .arrow-right:hover {
+    color: rgb(250, 229, 1);
+  }
+
+  .arrow-left {
+    position: absolute;
+    font-size: 80px;
+    cursor: pointer;
+    z-index: 2;
+    top: 30%;
+    left: 5%;
+    color: rgba(36, 36, 35, 0.732);
+    opacity: 1;
+  }
+
+  .arrow-left:hover {
+    color: rgb(250, 229, 1);
+  }
 }

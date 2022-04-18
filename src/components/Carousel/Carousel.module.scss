@@ -1,3 +1,5 @@
+@import "../../themes/GlobalThemes.scss";
+
 .container {
   display: flex;
   position: relative;
@@ -39,12 +41,12 @@
     z-index: 2;
     top: 30%;
     right: 5%;
-    color: rgba(36, 36, 35, 0.732);
+    color: var(--arrowsLigthTheme);
     opacity: 1;
   }
 
   .arrow-right:hover {
-    color: rgb(250, 229, 1);
+    color: var(--yellowLigthTheme);
   }
 
   .arrow-left {
@@ -54,11 +56,11 @@
     z-index: 2;
     top: 30%;
     left: 5%;
-    color: rgba(36, 36, 35, 0.732);
+    color: var(--arrowsLigthTheme);
     opacity: 1;
   }
 
   .arrow-left:hover {
-    color: rgb(250, 229, 1);
+    color: var(--yellowLigthTheme);
   }
 }

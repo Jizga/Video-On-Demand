@@ -1,3 +1,6 @@
+@import "../../themes/GlobalThemes.scss";
+
+
 .card {
   margin: 0 0.5rem;
   position: relative;
@@ -26,13 +29,13 @@
   height: 295px;
   overflow-y: scroll;
   overflow-x: hidden;
-  outline: 2px solid rgba(250, 229, 1, 0.732);
+  outline: 2px solid var( --activeYellowLigthTheme);
 }
 
 .description {
   padding: 1rem 1rem;
   font-weight: 100;
-  color: rgb(250, 229, 1);
+  color: var(--yellowLigthTheme);
 }
 
 .focused {
@@ -46,6 +49,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  color: rgba(250, 229, 1, 0.732);
+  color: var( --activeYellowLigthTheme);
   padding: 0 1rem;
 }

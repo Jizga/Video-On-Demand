@@ -1,0 +1,161 @@
+@import "../../themes/GlobalThemes.scss";
+
+.switchContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 3rem;
+
+  .toggle--checkbox {
+    display: none;
+  }
+  .toggle--checkbox:checked {
+    /** This will all flip from sun to moon **/
+    /** Change the label color **/
+  }
+  .toggle--checkbox:checked ~ .background {
+    background: var(--indigo-background);
+  }
+  .toggle--checkbox:checked + .toggle--label {
+    background: var(--indigo-color);
+    border-color: var(--indigo-border);
+    /** Change the cloud to stars **/
+    /** Change the sun into the moon **/
+    /** Show the dimples on the moon **/
+  }
+  .toggle--checkbox:checked + .toggle--label .toggle--label-background {
+    // Stars position
+    left: 20px;
+    width: 2px;
+  }
+  .toggle--checkbox:checked + .toggle--label .toggle--label-background:before {
+    width: 2px;
+    height: 2px;
+    top: -2px;
+  }
+  .toggle--checkbox:checked + .toggle--label .toggle--label-background:after {
+    width: 2px;
+    height: 2px;
+    left: -8px;
+    top: 8px;
+  }
+  .toggle--checkbox:checked + .toggle--label:before {
+    background: var(--white);
+    border-color: var(--gray-border);
+    animation-name: switch;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+  }
+  .toggle--checkbox:checked + .toggle--label:after {
+    transition-delay: 350ms;
+    opacity: 1;
+  }
+  .toggle--label {
+    /** Placeholder element, starting at blue **/
+    width: 80px;
+    height: 35px;
+    background: var(--blue-color);
+    border-radius: 100px;
+    border: 2px solid var(--blue-border);
+    display: flex;
+    position: relative;
+    transition: all 350ms ease-in;
+    /** The sun cloud and moon stars **/
+    /** Sun/Moon element **/
+    /** Gray dots on the moon **/
+  }
+  .toggle--label-background {
+    // Clouds position
+    width: 5px;
+    height: 2px;
+    border-radius: 2px;
+    position: relative;
+    background: var(--white);
+    left: 60px;
+    top: 15px;
+    transition: all 150ms ease-in;
+  }
+  .toggle--label-background:before {
+    // Stars
+    content: "";
+    position: absolute;
+    top: -2px;
+    width: 10px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--white);
+    left: -15px;
+    transition: all 150ms ease-in;
+  }
+  .toggle--label-background:after {
+    // Clouds during the day
+    content: "";
+    position: absolute;
+    top: 5px;
+    width: 10px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--white);
+    left: -10px;
+    transition: all 150ms ease-in;
+  }
+  .toggle--label:before {
+    // The sun element
+    animation-name: reverse;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+    transition: all 350ms ease-in;
+    content: "";
+    width: 22px;
+    height: 25px;
+    border: 2px solid var(--yellow-border);
+    top: 4px;
+    left: 4px;
+    position: absolute;
+    border-radius: 82px;
+    background: var(--yellow-background);
+  }
+  .toggle--label:after {
+    // The moon element
+    transition-delay: 0ms;
+    transition: all 250ms ease-in;
+    position: absolute;
+    content: "";
+    box-shadow: var(--gray-dots) -13px 0 0 2px,
+      var(--gray-dots) -24px 14px 0 -2px;
+    left: 70px;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    background: transparent;
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+  // Transition effect
+  @keyframes switch {
+    0% {
+      left: 2px;
+    }
+    60% {
+      left: 2px;
+      width: 50px;
+    }
+    100% {
+      left: 50px;
+      width: 22px;
+    }
+  }
+  @keyframes reverse {
+    0% {
+      left: 50px;
+      width: 22px;
+    }
+    60% {
+      left: 2px;
+      width: 50px;
+    }
+    100% {
+      left: 2px;
+    }
+  }
+}

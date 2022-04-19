@@ -2,4 +2,19 @@ body {
   --yellowLigthTheme: rgb(250, 229, 1);
   --arrowsLigthTheme: rgba(36, 36, 35, 0.732);
   --activeYellowLigthTheme: rgba(250, 229, 1, 0.732);
+
+  /** sunny side **/
+  --blue-background: #c2e9f6;
+  --blue-border: #72cce3;
+  --blue-color: #96dcee;
+  --yellow-background: #fffaa8;
+  --yellow-border: #f5eb71;
+  /** dark side **/
+  --indigo-background: #808fc7;
+  --indigo-border: #5d6baa;
+  --indigo-color: #6b7abb;
+  --gray-border: #e8e8ea;
+  --gray-dots: #e8e8ea;
+  /** general **/
+  --white: #fff;
 }

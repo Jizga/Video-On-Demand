@@ -4,7 +4,9 @@ import Card from "../Card/Card";
 import UseEvent from "../../hooks/UseEvent";
 import { useNavigate } from "react-router-dom";
 import styles from "./Carousel.module.scss";
-import { useAppContext, useCarouselContext } from "../../context/context";
+import { useAppContext } from "../../Context/Context";
+import { useCarouselContext} from "../../Context/CarouselContext";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro"; // <-- import styles to be used
 
@@ -112,7 +114,7 @@ export default function Carousel({ data }) {
         setcardIndx(index);
       }
     });
-  }, [cardSelected]);
+  }, [cardSelected, data]);
 
   useEffect(() => {
     // Cards number inside the carousel is adapting to the width of the screen
@@ -121,7 +123,7 @@ export default function Carousel({ data }) {
     );
     const elements = data.slice(0, cardElementsNumber);
     setCarouselElemnts(elements);
-  }, [screenWidth, cardElementsNumber]);
+  }, [screenWidth, cardElementsNumber, data]);
 
   useEffect(() => {
     // Listen window resize event

@@ -1,11 +1,14 @@
 import "./App.scss";
-import { AppContextProvider } from "./context/context";
+import { CarouselProvider } from "./Context/CarouselContext";
+import { AppContextProvider } from "./Context/Context";
 import RoutesComponent from "./route/RoutesComponent";
 
 function App() {
   return (
     <AppContextProvider>
-      <RoutesComponent />
+      <CarouselProvider>
+        <RoutesComponent />
+      </CarouselProvider>
     </AppContextProvider>
   );
 }

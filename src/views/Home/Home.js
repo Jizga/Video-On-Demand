@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useAppContext } from "../../context/context";
+import { useAppContext } from "../../Context/Context";
 import Carousel from "../../components/Carousel/Carousel";
 import Switcher from "../../components/Switcher/Switcher";
 
@@ -20,7 +20,7 @@ export default function Home() {
     };
 
     getData();
-  }, []);
+  }, [setData]);
 
   return (
     <div>

@@ -6,7 +6,7 @@ const AppContextProvider = ({ children }) => {
   // To add variables inside to the different contexts
   const [data, setData] = useState([]);
   const [watchedList, setWatchedList] = useState([]);
-  const [isLigthTheme, setIsLigthTheme] = useState([]);
+  const [isLigthTheme, setIsLigthTheme] = useState(true);
 
   return (
     <Context.Provider

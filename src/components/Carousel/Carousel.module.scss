@@ -41,12 +41,12 @@
     z-index: 2;
     top: 30%;
     right: 5%;
-    color: var(--arrowsLigthTheme);
+    color: $arrowsLigthTheme;
     opacity: 1;
   }
 
   .arrow-right:hover {
-    color: var(--yellowLigthTheme);
+    color: $yellowLigthTheme;
   }
 
   .arrow-left {
@@ -56,11 +56,11 @@
     z-index: 2;
     top: 30%;
     left: 5%;
-    color: var(--arrowsLigthTheme);
+    color: $arrowsLigthTheme;
     opacity: 1;
   }
 
   .arrow-left:hover {
-    color: var(--yellowLigthTheme);
+    color: $yellowLigthTheme;
   }
 }

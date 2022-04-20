@@ -1,9 +1,9 @@
 import React from "react";
-// import { useAppContext } from "../../Context/Context";
+import { useAppContext } from "../../Context/Context";
 import styles from "./Switcher.module.scss";
 
 export default function Switcher() {
-  // const { isLigthTheme, setIsLigthTheme } = useAppContext();
+  const { isLigthTheme, setIsLigthTheme } = useAppContext();
 
   return (
     <div className={styles.switchContainer}>
@@ -11,6 +11,7 @@ export default function Switcher() {
         type="checkbox"
         id="toggle"
         className={styles["toggle--checkbox"]}
+        onChange={() => setIsLigthTheme(!isLigthTheme)}
       />
       <label htmlFor="toggle" className={styles["toggle--label"]}>
         <span className={styles["toggle--label-background"]}></span>

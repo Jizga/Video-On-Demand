@@ -13,11 +13,11 @@
     /** Change the label color **/
   }
   .toggle--checkbox:checked ~ .background {
-    background: var(--indigo-background);
+    background: $indigo-background;
   }
   .toggle--checkbox:checked + .toggle--label {
-    background: var(--indigo-color);
-    border-color: var(--indigo-border);
+    background: $indigo-color;
+    border-color: $indigo-border;
     /** Change the cloud to stars **/
     /** Change the sun into the moon **/
     /** Show the dimples on the moon **/
@@ -39,8 +39,8 @@
     top: 8px;
   }
   .toggle--checkbox:checked + .toggle--label:before {
-    background: var(--white);
-    border-color: var(--gray-border);
+    background: $white;
+    border-color: $gray-border;
     animation-name: switch;
     animation-duration: 350ms;
     animation-fill-mode: forwards;
@@ -53,9 +53,9 @@
     /** Placeholder element, starting at blue **/
     width: 80px;
     height: 35px;
-    background: var(--blue-color);
+    background: $blue-color;
     border-radius: 100px;
-    border: 2px solid var(--blue-border);
+    border: 2px solid $blue-border;
     display: flex;
     position: relative;
     transition: all 350ms ease-in;
@@ -69,7 +69,7 @@
     height: 2px;
     border-radius: 2px;
     position: relative;
-    background: var(--white);
+    background: $white;
     left: 60px;
     top: 15px;
     transition: all 150ms ease-in;
@@ -82,7 +82,7 @@
     width: 10px;
     height: 2px;
     border-radius: 2px;
-    background: var(--white);
+    background: $white;
     left: -15px;
     transition: all 150ms ease-in;
   }
@@ -94,7 +94,7 @@
     width: 10px;
     height: 2px;
     border-radius: 2px;
-    background: var(--white);
+    background: $white;
     left: -10px;
     transition: all 150ms ease-in;
   }
@@ -107,12 +107,12 @@
     content: "";
     width: 22px;
     height: 25px;
-    border: 2px solid var(--yellow-border);
+    border: 2px solid $yellow-border;
     top: 4px;
     left: 4px;
     position: absolute;
     border-radius: 82px;
-    background: var(--yellow-background);
+    background: $yellow-background;
   }
   .toggle--label:after {
     // The moon element
@@ -120,8 +120,8 @@
     transition: all 250ms ease-in;
     position: absolute;
     content: "";
-    box-shadow: var(--gray-dots) -13px 0 0 2px,
-      var(--gray-dots) -24px 14px 0 -2px;
+    box-shadow: $gray-dots -13px 0 0 2px,
+      $gray-dots -24px 14px 0 -2px;
     left: 70px;
     top: 10px;
     width: 5px;

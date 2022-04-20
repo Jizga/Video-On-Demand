@@ -5,7 +5,7 @@ import UseEvent from "../../hooks/UseEvent";
 import { useNavigate } from "react-router-dom";
 import styles from "./Carousel.module.scss";
 import { useAppContext } from "../../Context/Context";
-import { useCarouselContext} from "../../Context/CarouselContext";
+import { useCarouselContext } from "../../Context/CarouselContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro"; // <-- import styles to be used
@@ -65,10 +65,8 @@ export default function Carousel({ data }) {
         next();
       }
     } else if (key === "ArrowLeft") {
-      // NO FUNCIONA BIEN!!! Se salta uno
       setcardIndx((prev) => {
         if (prev) {
-          console.log("prev - 1 --- ", prev - 1);
           return prev - 1;
         } else {
           return prev;

@@ -15,12 +15,12 @@
   }
 
   .btnInActive:hover {
-    color: var(--yellowLigthTheme);
+    color: $yellowLigthTheme;
   }
 
   .btnActive {
     text-decoration: none;
     cursor: pointer;
-    color: var(--activeYellowLigthTheme);
+    color: $activeYellowLigthTheme;
   }
 }

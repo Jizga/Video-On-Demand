@@ -1,4 +1,4 @@
-@import "../../themes/GlobalThemes.scss";
+@import "../../themes/GlobalThemes.module.scss";
 
 
 .card {
@@ -29,15 +29,14 @@
   height: 295px;
   overflow-y: scroll;
   overflow-x: hidden;
-  // outline: 2px solid var( --activeYellowLigthTheme);
-  outline: 2px solid $activeYellowLigthTheme;
+  outline: 2px solid $activeYellowDark;
 
 }
 
 .description {
   padding: 1rem 1rem;
   font-weight: 100;
-  color: $yellowLigthTheme;
+  color: $yellowDark;
 }
 
 .focused {
@@ -51,6 +50,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  color: $activeYellowLigthTheme;
+  color: $activeYellowDark;
   padding: 0 1rem;
 }

@@ -2,8 +2,11 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 import classNames from "classnames";
+import UseTheme from "../../hooks/UseTheme";
 
 export default function Navbar() {
+  UseTheme(document.getElementsByTagName("nav"));
+
   return (
     <>
       <nav className={styles.nav}>

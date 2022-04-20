@@ -1,4 +1,4 @@
-@import "../../themes/GlobalThemes.scss";
+@import "../../themes/GlobalThemes.module.scss";
 
 .container {
   display: flex;
@@ -41,12 +41,12 @@
     z-index: 2;
     top: 30%;
     right: 5%;
-    color: $arrowsLigthTheme;
+    color: $arrowsLigth;
     opacity: 1;
   }
 
   .arrow-right:hover {
-    color: $yellowLigthTheme;
+    color: $yellowDark;
   }
 
   .arrow-left {
@@ -56,11 +56,11 @@
     z-index: 2;
     top: 30%;
     left: 5%;
-    color: $arrowsLigthTheme;
+    color: $arrowsLigth;
     opacity: 1;
   }
 
   .arrow-left:hover {
-    color: $yellowLigthTheme;
+    color: $yellowDark;
   }
 }

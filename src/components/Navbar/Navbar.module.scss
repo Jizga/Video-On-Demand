@@ -1,7 +1,6 @@
-@import "../../themes/GlobalThemes.scss";
+@import "../../themes/GlobalThemes.module.scss";
 
 .nav {
-  background-color: rgb(26, 26, 26);
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
@@ -10,17 +9,55 @@
 
   .btnInActive {
     cursor: pointer;
-    color: rgba(245, 245, 245, 0.695);
+    color: $btnInActiveColorDark;
     text-decoration: none;
   }
 
   .btnInActive:hover {
-    color: $yellowLigthTheme;
+    color: $yellowDark;
   }
 
   .btnActive {
     text-decoration: none;
     cursor: pointer;
-    color: $activeYellowLigthTheme;
+    color: $activeYellowDark;
+  }
+
+  .ligth {
+    background-color: $backgroundColorLigth;
+    // .btnInActive {
+    //   cursor: pointer;
+    //   color: $btnInActiveColorLigth;
+    //   text-decoration: none;
+    // }
+  
+    // .btnInActive:hover {
+    //   color: $blueLigth;
+    // }
+  
+    // .btnActive {
+    //   text-decoration: none;
+    //   cursor: pointer;
+    //   color: $activeLigth;
+    // }
+  }
+  
+  .dark {
+    background-color: $backgroundColorDark;
+    // .btnInActive {
+    //   cursor: pointer;
+    //   color: $btnInActiveColorDark;
+    //   text-decoration: none;
+    // }
+  
+    // .btnInActive:hover {
+    //   color: $yellowDark;
+    // }
+  
+    // .btnActive {
+    //   text-decoration: none;
+    //   cursor: pointer;
+    //   color: $activeYellowDark;
+    // }
   }
 }

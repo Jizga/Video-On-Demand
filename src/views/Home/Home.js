@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import { useAppContext } from "../../Context/Context";
 import Carousel from "../../components/Carousel/Carousel";
 import Switcher from "../../components/Switcher/Switcher";
-import styles from "./Home.module.scss";
 
 export default function Home() {
-  const { data, setData } = useAppContext();
+  const { data, setData, isLightTheme, setIsLightTheme } = useAppContext();
 
   useEffect(() => {
     const getData = async () => {
@@ -26,7 +25,10 @@ export default function Home() {
   return (
     <div id="homeContainer">
       {data.length ? <Carousel data={data} /> : "Loading..."}
-      <Switcher />
+      <Switcher
+        isOn={isLightTheme}
+        handleToggle={() => setIsLightTheme(!isLightTheme)}
+      />
     </div>
   );
 }

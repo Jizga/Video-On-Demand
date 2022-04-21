@@ -1,17 +1,14 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useAppContext } from "../Context/Context";
 
 export default function UseTheme(elementsBySearch) {
-  const { isLigthTheme, setIsLigthTheme } = useAppContext();
-
-  console.log('elementsBySearch -- ', elementsBySearch);
+  const { isLightTheme } = useAppContext();
 
   useEffect(() => {
     const [rootApp] = elementsBySearch;
-    console.log(isLigthTheme, rootApp);
 
     const replaceClass = () => {
-      if (isLigthTheme) {
+      if (isLightTheme) {
         rootApp.classList.add("ligth");
         rootApp.classList.replace("dark", "ligth");
       } else {
@@ -20,6 +17,5 @@ export default function UseTheme(elementsBySearch) {
     };
 
     replaceClass();
-  }, [isLigthTheme]);
-
+  }, [elementsBySearch, isLightTheme]);
 }

@@ -1,16 +1,16 @@
-$backgroundColorLigth: rgb(173, 172, 172);
-$blueLigth: rgb(1, 26, 250);
-$arrowsLigth: rgba(32, 32, 31, 0.732);
-$activeLigth: rgba(1, 101, 250, 0.732);
-$backgroundColorLigth: rgb(173, 172, 172);
-$btnInActiveColorLigth: rgba(53, 53, 53, 0.817);
+$ligth: #ff3d67;
+$arrowsLight: rgba(32, 32, 31, 0.732);
+$activeLight: #ff3d67c0;
+$backgroundColorLight: rgb(238, 237, 237);
+$btnInActiveColorLight: rgba(53, 53, 53, 0.817);
+$borderBottomLight: #ff3d67;
 
 $backgroundColorDark: rgb(26, 26, 26);
 $yellowDark: rgb(250, 229, 1);
 $arrowsDark: rgba(36, 36, 35, 0.732);
 $activeYellowDark: rgba(250, 229, 1, 0.732);
 $btnInActiveColorDark: rgba(245, 245, 245, 0.695);
-// $borderBottomDark: rgba(250, 229, 1, 0.286);
+$borderBottomDark: rgba(250, 229, 1, 0.286);
 
 /** sunny side **/
 $blue-background: #c2e9f6;
@@ -26,4 +26,3 @@ $gray-border: #e8e8ea;
 $gray-dots: #e8e8ea;
 /** general **/
 $white: #fff;
-

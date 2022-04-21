@@ -6,11 +6,13 @@
   justify-content: center;
   margin-top: 2rem;
 
-  .arrow-right {
+  .arrow-left-dark,
+  .arrow-left-ligth {
     opacity: 0;
   }
 
-  .arrow-left {
+  .arrow-right-dark,
+  .arrow-right-ligth {
     opacity: 0;
   }
 
@@ -34,33 +36,57 @@
 }
 
 .container:hover {
-  .arrow-right {
-    position: absolute;
-    font-size: 80px;
-    cursor: pointer;
-    z-index: 2;
-    top: 30%;
-    right: 5%;
-    color: $arrowsLigth;
-    opacity: 1;
-  }
-
-  .arrow-right:hover {
-    color: $yellowDark;
-  }
-
-  .arrow-left {
+  .arrow-left-dark {
     position: absolute;
     font-size: 80px;
     cursor: pointer;
     z-index: 2;
     top: 30%;
     left: 5%;
-    color: $arrowsLigth;
+    color: $arrowsLight;
     opacity: 1;
   }
 
-  .arrow-left:hover {
+  .arrow-left-dark:hover,
+  .arrow-right-dark:hover {
     color: $yellowDark;
+  }
+
+  .arrow-left-ligth {
+    position: absolute;
+    font-size: 80px;
+    cursor: pointer;
+    z-index: 2;
+    top: 30%;
+    left: 5%;
+    color: $arrowsLight;
+    opacity: 1;
+  }
+
+  .arrow-right-dark {
+    position: absolute;
+    font-size: 80px;
+    cursor: pointer;
+    z-index: 2;
+    top: 30%;
+    right: 5%;
+    color: $arrowsLight;
+    opacity: 1;
+  }
+
+  .arrow-right-ligth {
+    position: absolute;
+    font-size: 80px;
+    cursor: pointer;
+    z-index: 2;
+    top: 30%;
+    right: 5%;
+    color: $arrowsLight;
+    opacity: 1;
+  }
+
+  .arrow-left-ligth:hover,
+  .arrow-right-ligth:hover {
+    color: $ligth;
   }
 }

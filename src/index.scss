@@ -7,7 +7,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: whitesmoke;
 }
 
 code {
@@ -16,9 +15,11 @@ code {
 }
 
 .ligth {
-  background-color: $backgroundColorLigth;
+  background-color: $backgroundColorLight;
+  color: $btnInActiveColorLight;
 }
 
 .dark {
   background-color: $backgroundColorDark;
+  color: whitesmoke;
 }

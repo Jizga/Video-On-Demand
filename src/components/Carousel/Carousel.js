@@ -9,12 +9,14 @@ import { useCarouselContext } from "../../Context/CarouselContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro"; // <-- import styles to be used
+import UseTheme from "../../hooks/UseTheme";
+import classNames from "classnames";
 
 const CARD_WIDTH = 210;
 const CARD_WHITE_SPACE = 8;
 export default function Carousel({ data }) {
   const [cardIndx, setcardIndx] = useState(0);
-  const { setWatchedList, watchedList } = useAppContext();
+  const { setWatchedList, watchedList, isLightTheme } = useAppContext();
   const { cardSelected, setCardSelected } = useCarouselContext();
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [cardElementsNumber, setcardElementsNumber] = useState(0);
@@ -138,7 +140,10 @@ export default function Carousel({ data }) {
     <div className={styles.container}>
       <FontAwesomeIcon
         icon={solid("circle-chevron-left")}
-        className={styles["arrow-left"]}
+        className={classNames(styles.card, {
+          [styles["arrow-left-dark"]]: !isLightTheme,
+          [styles["arrow-left-ligth"]]: isLightTheme,
+        })}
         onClick={() => previous()}
       />
       <div className={styles.carousel} ref={cardRef}>
@@ -155,7 +160,10 @@ export default function Carousel({ data }) {
       </div>
       <FontAwesomeIcon
         icon={solid("circle-chevron-right")}
-        className={styles["arrow-right"]}
+        className={classNames(styles.card, {
+          [styles["arrow-right-dark"]]: !isLightTheme,
+          [styles["arrow-right-ligth"]]: isLightTheme,
+        })}
         onClick={() => next()}
       />
     </div>

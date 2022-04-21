@@ -1,6 +1,5 @@
 @import "../../themes/GlobalThemes.module.scss";
 
-
 .card {
   margin: 0 0.5rem;
   position: relative;
@@ -15,41 +14,76 @@
   font-weight: 200;
 }
 
-.imageContainer {
+.imageContainerDark {
   width: 210px;
   height: 295px;
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: rgba(66, 65, 65, 0.3);
-  color: whitesmoke;
 }
 
-.imageContainerActive {
+.imageContainerLight {
+  width: 210px;
+  height: 295px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: $backgroundColorLight;
+}
+
+.imageContainerActiveDark {
   width: 210px;
   height: 295px;
   overflow-y: scroll;
   overflow-x: hidden;
   outline: 2px solid $activeYellowDark;
-
 }
 
-.description {
+.imageContainerActiveLight {
+  width: 210px;
+  height: 295px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  outline: 2px solid $activeLight;
+}
+
+.descriptionDark {
   padding: 1rem 1rem;
   font-weight: 100;
   color: $yellowDark;
 }
 
-.focused {
+.descriptionLight {
+  padding: 1rem 1rem;
+  font-weight: 100;
+  color: $ligth;
+}
+
+.focusedDark {
   box-shadow: 1px 1px 15px 5px grey;
   background-color: rgba(0, 0, 0, 0);
 }
 
-.focusedTitle {
+.focusedDarkTitle {
   width: 172px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
   color: $activeYellowDark;
+  padding: 0 1rem;
+}
+
+.focusedLight {
+  box-shadow: 1px 1px 10px 2px $btnInActiveColorLight;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.focusedLightTitle {
+  width: 172px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  color: $activeLight;
   padding: 0 1rem;
 }

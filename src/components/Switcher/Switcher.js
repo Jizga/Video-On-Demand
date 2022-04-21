@@ -1,30 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useAppContext } from "../../Context/Context";
 import UseTheme from "../../hooks/UseTheme";
 import styles from "./Switcher.module.scss";
 
 export default function Switcher() {
-  const { isLigthTheme, setIsLigthTheme } = useAppContext();
-
-  // useEffect(() => {
-  //   const [rootApp] = document.getElementsByTagName("body");
-  //   console.log(isLigthTheme, rootApp);
-
-  //   const replaceClass = () => {
-  //     if (isLigthTheme) {
-  //       rootApp.classList.add("ligth");
-  //       rootApp.classList.replace("dark", "ligth");
-  //     } else {
-  //       rootApp.classList.replace("ligth", "dark");
-  //     }
-  //   };
-
-  //   replaceClass();
-  // }, [isLigthTheme]);
-
-
-  UseTheme(document.getElementsByTagName('body'))
-
+  const { isLightTheme, setIsLightTheme } = useAppContext();
+  // Change the theme web
+  UseTheme(document.getElementsByTagName("body"));
 
   return (
     <div className={styles.switchContainer}>
@@ -32,7 +14,7 @@ export default function Switcher() {
         type="checkbox"
         id="toggle"
         className={styles["toggle--checkbox"]}
-        onChange={() => setIsLigthTheme(!isLigthTheme)}
+        onChange={() => setIsLightTheme(!isLightTheme)}
       />
       <label htmlFor="toggle" className={styles["toggle--label"]}>
         <span className={styles["toggle--label-background"]}></span>

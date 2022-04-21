@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useAppContext } from "../../Context/Context";
 import Carousel from "../../components/Carousel/Carousel";
 import Switcher from "../../components/Switcher/Switcher";
+import styles from "./Home.module.scss";
 
 export default function Home() {
   const { data, setData } = useAppContext();
@@ -23,7 +24,7 @@ export default function Home() {
   }, [setData]);
 
   return (
-    <div>
+    <div id="homeContainer">
       {data.length ? <Carousel data={data} /> : "Loading..."}
       <Switcher />
     </div>

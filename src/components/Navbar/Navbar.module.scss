@@ -1,11 +1,99 @@
 @import "../../themes/GlobalThemes.module.scss";
 
-.nav {
+// .nav {
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 1rem 2rem;
+//   font-size: larger;
+//   border-bottom: rgba(250, 229, 1, 0.286) solid;
+
+//   .btnInActive {
+//     cursor: pointer;
+//     color: $btnInActiveColorDark;
+//     text-decoration: none;
+//   }
+
+//   .btnInActive:hover {
+//     color: $yellowDark;
+//   }
+
+//   .btnActive {
+//     text-decoration: none;
+//     cursor: pointer;
+//     color: $activeYellowDark;
+//   }
+
+//   .ligth {
+//     background-color: $backgroundColorLight;
+//     // .btnInActive {
+//     //   cursor: pointer;
+//     //   color: $btnInActiveColorLight;
+//     //   text-decoration: none;
+//     // }
+
+//     // .btnInActive:hover {
+//     //   color: $ligth;
+//     // }
+
+//     // .btnActive {
+//     //   text-decoration: none;
+//     //   cursor: pointer;
+//     //   color: $activeLight;
+//     // }
+//   }
+
+//   .dark {
+//     background-color: $backgroundColorDark;
+//     // .btnInActive {
+//     //   cursor: pointer;
+//     //   color: $btnInActiveColorDark;
+//     //   text-decoration: none;
+//     // }
+
+//     // .btnInActive:hover {
+//     //   color: $yellowDark;
+//     // }
+
+//     // .btnActive {
+//     //   text-decoration: none;
+//     //   cursor: pointer;
+//     //   color: $activeYellowDark;
+//     // }
+//   }
+// }
+
+.ligth {
+  background-color: $backgroundColorLight;
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
   font-size: larger;
-  border-bottom: rgba(250, 229, 1, 0.286) solid;
+  border-bottom: $borderBottomLight solid;
+
+  .btnInActive {
+    cursor: pointer;
+    color: $btnInActiveColorLight;
+    text-decoration: none;
+  }
+
+  .btnInActive:hover {
+    color: $ligth;
+  }
+
+  .btnActive {
+    text-decoration: none;
+    cursor: pointer;
+    color: $activeLight;
+  }
+}
+
+.dark {
+  background-color: $backgroundColorDark;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  font-size: larger;
+  border-bottom: $borderBottomDark solid;
 
   .btnInActive {
     cursor: pointer;
@@ -21,43 +109,5 @@
     text-decoration: none;
     cursor: pointer;
     color: $activeYellowDark;
-  }
-
-  .ligth {
-    background-color: $backgroundColorLigth;
-    // .btnInActive {
-    //   cursor: pointer;
-    //   color: $btnInActiveColorLigth;
-    //   text-decoration: none;
-    // }
-  
-    // .btnInActive:hover {
-    //   color: $blueLigth;
-    // }
-  
-    // .btnActive {
-    //   text-decoration: none;
-    //   cursor: pointer;
-    //   color: $activeLigth;
-    // }
-  }
-  
-  .dark {
-    background-color: $backgroundColorDark;
-    // .btnInActive {
-    //   cursor: pointer;
-    //   color: $btnInActiveColorDark;
-    //   text-decoration: none;
-    // }
-  
-    // .btnInActive:hover {
-    //   color: $yellowDark;
-    // }
-  
-    // .btnActive {
-    //   text-decoration: none;
-    //   cursor: pointer;
-    //   color: $activeYellowDark;
-    // }
   }
 }

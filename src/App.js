@@ -1,5 +1,5 @@
-import { CarouselProvider } from "./Context/CarouselContext";
-import { AppContextProvider } from "./Context/Context";
+import { CarouselProvider } from "./context/CarouselContext";
+import { AppContextProvider } from "./context/Context";
 import RoutesComponent from "./route/RoutesComponent";
 
 function App() {

@@ -4,12 +4,11 @@ import Card from "../Card/Card";
 import UseEvent from "../../hooks/UseEvent";
 import { useNavigate } from "react-router-dom";
 import styles from "./Carousel.module.scss";
-import { useAppContext } from "../../Context/Context";
-import { useCarouselContext } from "../../Context/CarouselContext";
+import { useAppContext } from "../../context/Context";
+import { useCarouselContext } from "../../context/CarouselContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro"; // <-- import styles to be used
-import UseTheme from "../../hooks/UseTheme";
 import classNames from "classnames";
 
 const CARD_WIDTH = 210;

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { useAppContext } from "../../Context/Context";
+import { useAppContext } from "../../context/Context";
 import UseTheme from "../../hooks/UseTheme";
 import styles from "./Switcher.module.scss";
 

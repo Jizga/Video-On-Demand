@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAppContext } from "../Context/Context";
+import { useAppContext } from "../context/Context";
 
 export default function UseTheme(elementsBySearch) {
   const { isLightTheme } = useAppContext();

@@ -1,6 +1,6 @@
 import React from "react";
 import Player from "../../components/Player/Player";
-import { useCarouselContext } from "../../Context/CarouselContext";
+import { useCarouselContext } from "../../context/CarouselContext";
 import styles from "./Video.module.scss";
 
 export default function Video() {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Card.module.scss";
 import classNames from "classnames";
-import { useAppContext } from "../../Context/Context";
+import { useAppContext } from "../../context/Context";
 export default function Card({ element, playVideo, selected }) {
   const { name, image, summary } = element;
   const [showDescription, setShowDescription] = useState(false);

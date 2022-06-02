@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import History from "../views/History/History";
 import Home from "../views/Home/Home";

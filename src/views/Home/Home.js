@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useAppContext } from "../../context/Context";
+import { useAppContext } from "../../context/context";
 import Carousel from "../../components/Carousel/Carousel";
 import Switcher from "../../components/Switcher/Switcher";
 

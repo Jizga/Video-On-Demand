@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "../../components/Carousel/Carousel";
 import Switcher from "../../components/Switcher/Switcher";
-import { useAppContext } from "../../context/Context";
+import { useAppContext } from "../../context/context";
 import styles from "./History.module.scss";
 
 export default function History() {

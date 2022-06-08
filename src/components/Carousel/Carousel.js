@@ -4,7 +4,7 @@ import Card from "../Card/Card";
 import UseEvent from "../../hooks/UseEvent";
 import { useNavigate } from "react-router-dom";
 import styles from "./Carousel.module.scss";
-import { useAppContext } from "../../context/Context";
+import { useAppContext } from "../../context/context";
 import { useCarouselContext } from "../../context/CarouselContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -76,7 +76,7 @@ export default function Carousel({ data }) {
       previous();
     } else if (key === "Enter") {
       // It does not work well
-      carouselElemnts?.forEach((dataElement, index) => {
+      carouselElemnts.forEach((_dataElement, index) => {
         if (index === cardIndx) {
           // To active the card selected's play function
           const cardSelectRef = cardRef.current;
@@ -108,7 +108,7 @@ export default function Carousel({ data }) {
 
   useEffect(() => {
     // To keep the card focused after playing its video
-    data?.forEach((dataElement, index) => {
+    data.forEach((dataElement, index) => {
       if (dataElement.id === cardSelected.id) {
         setcardIndx(index);
       }

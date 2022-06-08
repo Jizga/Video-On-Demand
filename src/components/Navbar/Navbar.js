@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 import classNames from "classnames";
 import UseTheme from "../../hooks/UseTheme";
-import { useAppContext } from "../../context/Context";
+import { useAppContext } from "../../context/context";
 
 export default function Navbar() {
   const { isLightTheme } = useAppContext();
